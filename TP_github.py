@@ -22,6 +22,11 @@ def mostrar_productos():
     for producto in lista_productos:
         lista.insert(END, producto)
 
+def eliminar_productos():
+    posicion= lista.curselection()[0]
+    lista.delete(posicion)
+
+
 etiqueta_titulo= Label(root, text="Getion de productos", font= "Arial 16")
 etiqueta_titulo.place(x=250, y=20)
 
@@ -37,7 +42,11 @@ etiqueta_bonton.place(x=40, y=130)
 boton_mostrar = Button(root, text="Mostrar productos", command=mostrar_productos)
 boton_mostrar.place(x=300, y=130)
 
+boton_eliminar= Button(root , text="eliminar product0" ,command= eliminar_productos)
+boton_eliminar.place(x=470, y= 150)
+
 lista = Listbox(root, width=75, height=16)
 lista.place(x=30, y=180)
+
 
 root.mainloop()
