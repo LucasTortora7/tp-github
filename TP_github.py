@@ -16,7 +16,11 @@ def agregar_productos():
    
     lista_productos.append(produc)
     producto.set("")
-   
+
+def mostrar_productos():
+    lista.delete(0, END)
+    for producto in lista_productos:
+        lista.insert(END, producto)
 
 etiqueta_titulo= Label(root, text="Getion de productos", font= "Arial 16")
 etiqueta_titulo.place(x=250, y=20)
@@ -29,6 +33,9 @@ etiqueta_nombre.place(x=30, y=100)
 
 etiqueta_bonton= Button(root , text="agregar producto" ,command=agregar_productos)
 etiqueta_bonton.place(x=40, y=130)
+
+boton_mostrar = Button(root, text="Mostrar productos", command=mostrar_productos)
+boton_mostrar.place(x=300, y=130)
 
 lista = Listbox(root, width=75, height=16)
 lista.place(x=30, y=180)
