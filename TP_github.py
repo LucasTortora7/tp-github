@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 
 root= Tk()
 root.title("Mi App")
@@ -27,6 +28,13 @@ def eliminar_productos():
     lista.delete(posicion)
 
 
+def buscar_producto():
+    if entrada_busqueda.get().strip() in lista_productos:
+        messagebox.showwarning("Buscar producto", "El producto se encuentra en la lista.")
+    else:
+        messagebox.showwarning("Buscar producto", "El producto no se encuentra en la lista.")
+
+
 etiqueta_titulo= Label(root, text="Getion de productos", font= "Arial 16")
 etiqueta_titulo.place(x=250, y=20)
 
@@ -40,13 +48,22 @@ etiqueta_bonton= Button(root , text="agregar producto" ,command=agregar_producto
 etiqueta_bonton.place(x=40, y=130)
 
 boton_mostrar = Button(root, text="Mostrar productos", command=mostrar_productos)
-boton_mostrar.place(x=300, y=130)
+boton_mostrar.place(x=200, y=130)
 
-boton_eliminar= Button(root , text="eliminar product0" ,command= eliminar_productos)
-boton_eliminar.place(x=470, y= 150)
+boton_eliminar= Button(root , text="eliminar producto" ,command= eliminar_productos)
+boton_eliminar.place(x=200, y=80)
+
+etiqueta_busqueda = Label(root, text="Buscar producto:", font="Arial 12")
+etiqueta_busqueda.place(x=350, y=70)
+
+entrada_busqueda = Entry(root)
+entrada_busqueda.place(x=350, y=100)
+
+boton_buscar = Button(root, text="Buscar", command=buscar_producto)
+boton_buscar.place(x=385, y=130)
 
 lista = Listbox(root, width=75, height=16)
-lista.place(x=30, y=180)
+lista.place(x=120, y=210)
 
 
 root.mainloop()
