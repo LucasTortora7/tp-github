@@ -37,6 +37,9 @@ def buscar_producto():
 def cantidad_productos():
     messagebox.showwarning("Cantidad de productos",f"Hay {len(lista_productos)} productos almacenados.")
 
+def limpiar_producto():
+    producto.set("")
+
 etiqueta_titulo= Label(root, text="Getion de productos", font= "Arial 16")
 etiqueta_titulo.place(x=250, y=20)
 
@@ -67,8 +70,10 @@ boton_buscar.place(x=385, y=130)
 boton_cantidad = Button(root, text="Cantidad de productos", command=cantidad_productos)
 boton_cantidad.place(x=490, y=130)
 
+boton_limpiar = Button(root, text="Limpiar", command=limpiar_producto)
+boton_limpiar.place(x=40, y=165)
+
 lista = Listbox(root, width=75, height=16)
 lista.place(x=120, y=210)
-
 
 root.mainloop()
