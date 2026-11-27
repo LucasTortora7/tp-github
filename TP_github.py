@@ -34,6 +34,8 @@ def buscar_producto():
     else:
         messagebox.showwarning("Buscar producto", "El producto no se encuentra en la lista.")
 
+def cantidad_productos():
+    messagebox.showwarning("Cantidad de productos",f"Hay {len(lista_productos)} productos almacenados.")
 
 etiqueta_titulo= Label(root, text="Getion de productos", font= "Arial 16")
 etiqueta_titulo.place(x=250, y=20)
@@ -61,6 +63,9 @@ entrada_busqueda.place(x=350, y=100)
 
 boton_buscar = Button(root, text="Buscar", command=buscar_producto)
 boton_buscar.place(x=385, y=130)
+
+boton_cantidad = Button(root, text="Cantidad de productos", command=cantidad_productos)
+boton_cantidad.place(x=490, y=130)
 
 lista = Listbox(root, width=75, height=16)
 lista.place(x=120, y=210)
